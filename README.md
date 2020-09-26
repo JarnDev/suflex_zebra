@@ -7,7 +7,7 @@
 
 Install the latest version from Github using:
 
-    pip install --upgrade https://github.com/jarndev/brother_ql/archive/master.zip
+    pip install --upgrade https://github.com/JarnDev/suflex_zebra/archive/master.zip
 
 This package was mainly created for use with Python 3.
 The essential functionality, however, will also work with Python 2: the creation of label files.
