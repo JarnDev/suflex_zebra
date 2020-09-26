@@ -9,7 +9,7 @@ LABEL_SIZES = ['60']
 
 PRINTER_HELPER = "The identifier for the printer. This could be a string like tcp://192.168.1.21:9100 for a networked printer or usb://0x04f9:0x2015/000M6Z401370 for a printer connected via USB."
 @click.group()
-@click.option('-b', '--backend', default='linux_kernel' metavar='BACKEND_IDENTIFIER', envvar='BROTHER_QL_BACKEND', help='Not implemented!')
+@click.option('-b', '--backend', default='linux_kernel', metavar='BACKEND_IDENTIFIER', envvar='BROTHER_QL_BACKEND', help='Not implemented!')
 @click.option('-m', '--model', default='Gc420t', metavar='MODEL_IDENTIFIER', envvar='BROTHER_QL_MODEL', help='Not implemented!')
 @click.option('-p', '--printer', metavar='PRINTER_IDENTIFIER', envvar='ZEBRA_PRINTER', help=PRINTER_HELPER)
 @click.option('--debug', is_flag=True)
