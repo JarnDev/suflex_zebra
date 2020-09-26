@@ -35,5 +35,5 @@ def send_print(device_specifier, payload):
             device_specifier = device_specifier[6:]
 
     for zpl_payload in payload:
-        with open('/dev/usb/lp0', 'w') as printer:
+        with open(device_specifier, 'w') as printer:
             printer.write(zpl_payload)
