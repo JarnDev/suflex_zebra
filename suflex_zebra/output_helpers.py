@@ -5,11 +5,13 @@ import platform
 def log_on_linux(msg):
     if platform.system() == 'Linux':
         from syslog import syslog, LOG_INFO
-        print("TESTE SYSLOG")
         syslog(LOG_INFO, msg)
 
 
 def log_discovered_devices(available_devices):
+    if not available_devices:
+        log_on_linux('Not Printer was found!')
+
     for device in available_devices:
         result = {'model': 'unknown'}
         result.update(device)
