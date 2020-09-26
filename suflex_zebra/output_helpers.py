@@ -5,6 +5,7 @@ import platform
 def log_on_linux(msg):
     if platform.system() == 'Linux':
         from syslog import syslog, LOG_INFO
+        print("TESTE SYSLOG")
         syslog(LOG_INFO, msg)
 
 
