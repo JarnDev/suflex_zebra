@@ -26,7 +26,6 @@ setup(name='suflex_zebra',
       entry_points={
           'console_scripts': [
               'suflex_zebra = suflex_zebra.cli:cli',
-              'suflex_zebra_discover = suflex_zebra.linux_kernel:list_available_devices'
           ],
       },
       include_package_data=False,

@@ -1,7 +1,5 @@
 #!/usr/bin/env python
-import glob, logging
-logging.basicConfig(level='INFO')
-logger = logging.getLogger('linux_kernel')
+import glob
 
 def list_available_devices():
     """
@@ -14,6 +12,3 @@ def list_available_devices():
     paths = glob.glob('/dev/usb/lp*')
 
     return [{'identifier': 'file://' + path, 'instance': None} for path in paths]
-
-if __name__ == '__main__':
-    list_available_devices()
