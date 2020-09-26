@@ -3,9 +3,9 @@ import platform
 
 
 def log_on_linux(msg):
-    if platform.system() is 'Linux':
-        from syslog import syslog
-        syslog(syslog.LOG_INFO, msg)
+    if platform.system() == 'Linux':
+        from syslog import syslog, LOG_INFO
+        syslog(LOG_INFO, msg)
 
 
 def log_discovered_devices(available_devices):
