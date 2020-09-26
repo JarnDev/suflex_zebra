@@ -1,0 +1,5 @@
+zpl==0.1.8
+setuptools==40.6.2
+pypandoc==1.5
+click==7.1.2
+Pillow==7.2.0
