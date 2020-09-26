@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 '''CLI DEIFINITION'''
-import logging
-
 import click
 
 
@@ -25,9 +23,6 @@ def cli(ctx, *args, **kwargs):
     ctx.meta['MODEL'] = model
     ctx.meta['BACKEND'] = backend
     ctx.meta['PRINTER'] = printer
-
-    logging.basicConfig(level='DEBUG' if debug else 'INFO')
-
 
 @cli.command()
 @click.pass_context
