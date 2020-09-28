@@ -59,3 +59,8 @@ So, printing images file can be as easy as:
 
 
 This package was derived from https://github.com/pklaus/brother_ql/ created for brother label printers used at the company, I just built a package that accepts the most used commands for minimal code changes at company code sources.
+
+
+## TODO :construction:
+
+- Rremove all hard coded variables and utilize the input args.
