@@ -43,6 +43,15 @@ def discover_and_list_available_devices():
 @cli.command('print', short_help='Print a label')
 @click.argument('images', nargs=-1, type=click.File('rb'), metavar='IMAGE [IMAGE] ...')
 @click.option('-l', '--label', default=60, envvar='ZEBRA_LABEL', help='Not implemented!')
+@click.option('-r', '--rotate', type=click.Choice(('auto', '0', '90', '180', '270')), default='auto', help='Rotate the image (counterclock-wise) by this amount of degrees.')
+@click.option('-t', '--threshold', type=float, default=70.0, help='The threshold value (in percent) to discriminate between black and white pixels.')
+@click.option('-d', '--dither', is_flag=True, help='Enable dithering when converting the image to b/w. If set, --threshold is meaningless.')
+@click.option('-c', '--compress', is_flag=True, help='Enable compression (if available with the model). Label creation can take slightly longer but the resulting instruction size is normally considerably smaller.')
+@click.option('--red', is_flag=True, help='Create a label to be printed on black/red/white tape (only with QL-8xx series on DK-22251 labels). You must use this option when printing on black/red tape, even when not printing red.')
+@click.option('--600dpi', 'dpi_600', is_flag=True, help='Print with 600x300 dpi available on some models. Provide your image as 600x600 dpi; perpendicular to the feeding the image will be resized to 300dpi.')
+@click.option('--lq', is_flag=True, help='Print with low quality (faster). Default is high quality.')
+@click.option('--no-cut', is_flag=True, help="Don't cut the tape after printing the label.")
+@click.option('--rasp', is_flag=True, help="Use raspberry printer method")
 @click.pass_context
 def print_cmd(ctx, *args, **kwargs):
     """ Print a label of the provided IMAGE. """
