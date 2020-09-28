@@ -32,7 +32,7 @@ def send_print(device_specifier, payload):
     '''Send zpl code to zebra'''
     if isinstance(device_specifier, str):
         if device_specifier.startswith('file://'):
-            device_specifier = device_specifier[6:]
+            device_specifier = device_specifier[7:]
 
     for zpl_payload in payload:
         with open(device_specifier, 'w') as printer:

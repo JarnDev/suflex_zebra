@@ -46,7 +46,11 @@ def discover_and_list_available_devices():
 @click.pass_context
 def print_cmd(ctx, *args, **kwargs):
     """ Print a label of the provided IMAGE. """
+    from suflex_zebra.output_helpers import log_on_linux
     from suflex_zebra.zebra_interface import create_zpl, send_print
+
+
     printer = ctx.meta.get('PRINTER')
     payload = create_zpl(kwargs['images'])
     send_print(printer, payload)
+    log_on_linux(f"printer:{printer} | imagens: {kwargs['images']}")
