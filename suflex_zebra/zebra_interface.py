@@ -1,7 +1,8 @@
 #!/usr/bin/env python
+import sys
 import zpl
 from PIL import Image
-
+from suflex_zebra.output_helpers import log_on_linux
 RIBBON_WIDTH = 98
 LABEL_WIDTH = 60
 LABEL_HEIGTH = 60
@@ -33,7 +34,14 @@ def send_print(device_specifier, payload):
     if isinstance(device_specifier, str):
         if device_specifier.startswith('file://'):
             device_specifier = device_specifier[7:]
-
-    for zpl_payload in payload:
-        with open(device_specifier, 'w') as printer:
-            printer.write(zpl_payload)
+    try:
+        for zpl_payload in payload:
+            with open(device_specifier, 'w') as printer:
+                printer.write(zpl_payload)
+        print('Job successfully printed')
+        log_on_linux('Job successfully printed')
+        sys.exit(0)
+    except Exception as error:
+        log_on_linux(f'Error: an error occurred while printing: {error}')
+        print(f'Error: an error occurred while printing: {error}')
+        sys.exit(2)
