@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 import sys
+import os
 import zpl
 from PIL import Image
 from suflex_zebra.output_helpers import log_on_linux
-RIBBON_WIDTH = 98
-LABEL_WIDTH = 60
-LABEL_HEIGTH = 60
-PRINTER_DPMM = 8
-PRINT_OFFSET = 19
+LABEL_WIDTH = int(os.environ.get("LABEL_WIDTH", 60))
+LABEL_HEIGTH = int(os.environ.get("LABEL_HEIGTH", 60))
+PRINTER_DPMM = int(os.environ.get("PRINTER_DPMM", 8))
+PRINT_OFFSET = int(os.environ.get("PRINT_OFFSET", 22))
 
 def create_zpl(images):
     '''Create ZPL from Image'''
