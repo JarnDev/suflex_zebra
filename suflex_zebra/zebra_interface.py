@@ -7,7 +7,7 @@ from suflex_zebra.output_helpers import log_on_linux
 LABEL_WIDTH = int(os.environ.get("LABEL_WIDTH", 60))
 LABEL_HEIGTH = int(os.environ.get("LABEL_HEIGTH", 60))
 PRINTER_DPMM = int(os.environ.get("PRINTER_DPMM", 8))
-PRINT_OFFSET = int(os.environ.get("PRINT_OFFSET", 22))
+PRINT_OFFSET = int(os.environ.get("PRINT_OFFSET", 25))
 
 def create_zpl(images):
     '''Create ZPL from Image'''
